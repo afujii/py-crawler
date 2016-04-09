@@ -32,6 +32,7 @@ class Ranking(Base):
 	point = Column(Float) # 评分
 	description = Column(String(1000)) # 描述
 	ranking = Column(Integer) # 排名
+	source = Column(Integer) # 来源
 
 class Movies(Base):
 	__tablename__ = 'Movies'
@@ -46,7 +47,15 @@ class Movies(Base):
 	director = Column(String(100)) # 导演
 	actor = Column(String(200)) # 演员
 	release_time = Column(Date) # 上映时间
+	urls = Column(String(2000)) # 电影相关链接
+	source = Column(Integer) # 来源
 
+class source(Base):
+	__tablename__ = 'source'
+
+	id = Column(Integer, primary_key=True)
+	name = Column(String(200)) # 电影名称
+	url = Column(String(200)) # 网站链接
 
 
 engine = create_engine(get_url(Database()), echo=True)
