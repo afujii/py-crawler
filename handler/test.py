@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import base
+import sys
+sys.path.append('/')
+import core.base
 import scrapy
 from scrapy.selector import Selector
 from scrapy.http import HtmlResponse
