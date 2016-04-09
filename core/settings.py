@@ -14,6 +14,11 @@ BOT_NAME = 'crawler'
 SPIDER_MODULES = ['handler']
 NEWSPIDER_MODULE = 'handler'
 
+class Database(object):
+	url = '127.0.0.1:3306'
+	dbname = 'test'
+	username = 'root'
+	password = 'root'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'crawler (+http://www.yourdomain.com)'
