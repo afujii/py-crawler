@@ -27,25 +27,25 @@ class Ranking(Base):
 	__tablename__ = 'ranking'
 
 	id = Column(Integer, primary_key=True)
-	title = Column(String(20))
-	pic_url = Column(String(200))
-	point = Column(Float)
-	description = Column(String(1000))
-	ranking = Column(Integer)
+	title = Column(String(20)) # 标题
+	pic_url = Column(String(200)) # 图片链接
+	point = Column(Float) # 评分
+	description = Column(String(1000)) # 描述
+	ranking = Column(Integer) # 排名
 
 class Movies(Base):
 	__tablename__ = 'Movies'
 
 	id = Column(Integer, primary_key=True)
-	title = Column(String(20))
-	pic_url = Column(String(200))
-	point = Column(Float)
-	description = Column(String(1000))
-	type = Column(Integer)
-	classify = Column(Integer)
-	director = Column(String(100))
-	actor = Column(String(200))
-	release_time = Column(Date)
+	title = Column(String(20)) # 电影名
+	pic_url = Column(String(200)) # 图片链接
+	point = Column(Float) # 评分
+	description = Column(String(1000)) # 描述
+	type = Column(Integer) # 上映否？即将上映、已经上映
+	classify = Column(Integer) # 分类
+	director = Column(String(100)) # 导演
+	actor = Column(String(200)) # 演员
+	release_time = Column(Date) # 上映时间
 
 
 
