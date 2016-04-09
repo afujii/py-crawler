@@ -3,7 +3,7 @@
 __author__ = 'HowardWong'
 
 from settings import Database
-from sqlalchemy import Column, String, Integer,create_engine
+from sqlalchemy import Column, String, Float, Date, Integer,create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -29,8 +29,8 @@ class Ranking(Base):
 	id = Column(Integer, primary_key=True)
 	title = Column(String(20))
 	pic_url = Column(String(200))
-	point = Column(Double)
-	description =  = Column(String(1000))
+	point = Column(Float)
+	description = Column(String(1000))
 	ranking = Column(Integer)
 
 class Movies(Base):
@@ -38,11 +38,14 @@ class Movies(Base):
 
 	id = Column(Integer, primary_key=True)
 	title = Column(String(20))
+	pic_url = Column(String(200))
+	point = Column(Float)
+	description = Column(String(1000))
 	type = Column(Integer)
 	classify = Column(Integer)
 	director = Column(String(100))
 	actor = Column(String(200))
-	release_time = Column(Datetime)
+	release_time = Column(Date)
 
 
 
