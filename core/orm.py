@@ -31,5 +31,4 @@ class Ranking(Base):
 	ranking = Column(Integer)
 
 engine = create_engine(get_url(Database()), echo=True)
-DB_Session = sessionmaker(bind=engine)
 init_db()

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
-sys.path.append('/')
+sys.path.append('..')
 import core.base
 import scrapy
 from scrapy.selector import Selector
@@ -18,5 +18,3 @@ class DmozSpider(scrapy.spiders.Spider):
     def parse(self, response):
       filename = response.url.split("/")[-2]
       result = response.selector.css('.mtiplist .picbox a img')[0].xpath('@src')[0].extract()
-      with open(filename, 'wb') as f:
-          f.write(result)

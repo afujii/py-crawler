@@ -7,7 +7,7 @@ sys.setdefaultencoding('utf-8')
 
 from orm import *
 
-
+DB_Session = sessionmaker(bind=engine)
 def merge(obj):
 	try:
 		session = DBSession()
