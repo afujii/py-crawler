@@ -17,7 +17,8 @@ def drop_db():
 def get_url(db):
 	return 'mysql+mysqlconnector://' \
 	+ db.username +':' + db.password \
-	+ '@' + db.url + '/' + db.dbname
+	+ '@' + db.url + '/' + db.dbname \
+	+ '?charset=utf8'
 
 #Init
 Base = declarative_base()
@@ -59,7 +60,7 @@ class Source(Base):
 	name = Column(String(200)) # 电影名称
 	url = Column(String(200)) # 网站链接
 
+engine = create_engine(get_url(Database()), echo=False)
+DB_Session = sessionmaker(bind=engine)
 
-
-engine = create_engine(get_url(Database()), echo=True)
 init_db()

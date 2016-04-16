@@ -1,4 +1,5 @@
-from apscheduler.schedulers.blocking import BlockingScheduler
+from apscheduler import BlockingScheduler
+import sys, os
 
 def my_job():
     print 'hello world'
