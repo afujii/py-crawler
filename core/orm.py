@@ -3,7 +3,7 @@
 __author__ = 'HowardWong'
 
 from settings import Database
-from sqlalchemy import Long, Column, String, Float, Integer,create_engine
+from sqlalchemy import Column, String, Float, Integer, BigInteger, create_engine, types
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -33,10 +33,10 @@ class Ranking(Base):
 	description = Column(String(1000)) # 描述
 	ranking = Column(Integer) # 排名
 	source = Column(Integer) # 来源
-	crawl_time = Column(Long) # 爬取时间
+	crawl_time = Column(BigInteger) # 爬取时间
 
 class Movies(Base):
-	__tablename__ = 'Movies'
+	__tablename__ = 'movies'
 
 	id = Column(Integer, primary_key=True)
 	title = Column(String(20)) # 电影名
@@ -47,12 +47,12 @@ class Movies(Base):
 	classify = Column(Integer) # 分类
 	director = Column(String(100)) # 导演
 	actor = Column(String(200)) # 演员
-	release_time = Column(Long) # 上映时间
+	release_time = Column(BigInteger) # 上映时间
 	urls = Column(String(2000)) # 电影相关链接
 	source = Column(Integer) # 来源
-	crawl_time = Column(Long) # 爬取时间
+	crawl_time = Column(BigInteger) # 爬取时间
 
-class source(Base):
+class Source(Base):
 	__tablename__ = 'source'
 
 	id = Column(Integer, primary_key=True)

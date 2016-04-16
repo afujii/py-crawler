@@ -8,6 +8,6 @@ NEWSPIDER_MODULE = 'handler'
 
 class Database(object):
 	url = '127.0.0.1:3306'
-	dbname = 'test'
+	dbname = 'crawler'
 	username = 'root'
 	password = 'root'
