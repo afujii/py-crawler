@@ -5,7 +5,7 @@ from core import app
 import sys, os
 
 task_list = [
-	{'name':'test','corn':'123'}
+	{'name':'test','corn':'0 0 23 * * ?'}
 ]
 
 def run():
