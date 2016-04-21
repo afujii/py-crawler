@@ -1,7 +1,7 @@
-import Flask
+# -*- coding: utf-8 -*-
 
-DEBUG = true
-SECRECT_KEY = 'ha...ha...ha'
+from flask import Flask
+from core import settings
 
-app = Flask(__name__)
-app.config.from_object(__name__)
+app = Flask(settings.APP_NAME)
+app.config.from_object(settings)

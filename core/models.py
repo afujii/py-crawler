@@ -1,42 +1,41 @@
-from sqlalchemy import Column, String, Float, Integer, BigInteger, create_engine, types
-from sqlalchemy.ext.declarative import declarative_base
+# -*- coding: utf-8 -*-
 
-# Declarative base class instance
-Base = declarative_base()
+from flask_sqlalchemy import SQLAlchemy
+from core.app import app
+
+
+db = SQLAlchemy(app)
+
 
 # Database Schema
-class Ranking(Base):
-    __tablename__ = 'ranking'
+class Ranking(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(20))  # 标题
+    pic_url = db.Column(db.String(200))  # 图片链接
+    point = db.Column(db.Float)  # 评分
+    description = db.Column(db.String(1000))  # 描述
+    ranking = db.Column(db.Integer)  # 排名
+    source = db.Column(db.Integer)  # 来源
+    crawl_time = db.Column(db.BigInteger)  # 爬取时间
 
-    id = Column(Integer, primary_key=True)
-    title = Column(String(20)) # 标题
-    pic_url = Column(String(200)) # 图片链接
-    point = Column(Float) # 评分
-    description = Column(String(1000)) # 描述
-    ranking = Column(Integer) # 排名
-    source = Column(Integer) # 来源
-    crawl_time = Column(BigInteger) # 爬取时间
 
-class Movies(Base):
-    __tablename__ = 'movies'
+class Movies(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(20))  # 电影名
+    pic_url = db.Column(db.String(200))  # 图片链接
+    point = db.Column(db.Float)  # 评分
+    description = db.Column(db.String(1000))  # 描述
+    type = db.Column(db.Integer)  # 上映否？即将上映、已经上映
+    classify = db.Column(db.Integer)  # 分类
+    director = db.Column(db.String(100))  # 导演
+    actor = db.Column(db.String(200))  # 演员
+    release_time = db.Column(db.BigInteger)  # 上映时间
+    urls = db.Column(db.String(2000))  # 电影相关链接
+    source = db.Column(db.Integer)  # 来源
+    crawl_time = db.Column(db.BigInteger)  # 爬取时间
 
-    id = Column(Integer, primary_key=True)
-    title = Column(String(20)) # 电影名
-    pic_url = Column(String(200)) # 图片链接
-    point = Column(Float) # 评分
-    description = Column(String(1000)) # 描述
-    type = Column(Integer) # 上映否？即将上映、已经上映
-    classify = Column(Integer) # 分类
-    director = Column(String(100)) # 导演
-    actor = Column(String(200)) # 演员
-    release_time = Column(BigInteger) # 上映时间
-    urls = Column(String(2000)) # 电影相关链接
-    source = Column(Integer) # 来源
-    crawl_time = Column(BigInteger) # 爬取时间
 
-class Source(Base):
-    __tablename__ = 'source'
-
-    id = Column(Integer, primary_key=True)
-    name = Column(String(200)) # 电影名称
-    url = Column(String(200)) # 网站链接
+class Source(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(200))  # 电影名称
+    url = db.Column(db.String(200))  # 网站链接
