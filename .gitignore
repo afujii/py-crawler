@@ -61,6 +61,11 @@ target/
 # Ipython Notebook
 .ipynb_checkpoints
 
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
 # IDEs & editors
 .idea/
 .vscode/
