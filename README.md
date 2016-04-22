@@ -1,4 +1,4 @@
-# Crawler
+# Crawler <small>A movie crawler and ranking project.</small>
 
 ### Directories
 
