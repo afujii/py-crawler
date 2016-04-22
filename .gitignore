@@ -69,3 +69,6 @@ target/
 # IDEs & editors
 .idea/
 .vscode/
+
+# scrapy output
+spider/*.json
