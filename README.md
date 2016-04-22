@@ -1,4 +1,4 @@
-# Crawler <small>A movie crawler and ranking project.</small>
+# Crawler <small>-- A movie crawler and ranking project.</small>
 
 ### Directories
 
@@ -14,6 +14,7 @@ crawler/
    │   └── views.py
    ├── env/
    ├── migrations/
+   ├── spider/
    ├── static/
    ├── templates/
    │   ├── about.html
