@@ -43,3 +43,9 @@ python manage.py migrate
 # erase database
 python manage.py erase
 ```
+
+### How to run spider
+
+``` bash
+scrapy runspider crawler.py -o result.json
+```
