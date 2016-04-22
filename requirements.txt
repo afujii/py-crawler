@@ -8,3 +8,4 @@ Flask-Babel
 pygments
 markdown
 blinker
+Scrapy

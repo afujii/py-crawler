@@ -71,4 +71,4 @@ target/
 .vscode/
 
 # scrapy output
-spider/*.json
+crawler/outputs/
