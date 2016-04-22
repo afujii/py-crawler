@@ -62,7 +62,6 @@ python manage.py erase
 scrapy crawl douban -o outputs/douban.json
 ```
 
-
 ### How to generate dir tree
 
 ```
