@@ -6,26 +6,17 @@
 crawler/
     ├── core
     │   ├── __init__.py
-    │   ├── __init__.pyc
     │   ├── app.py
-    │   ├── app.pyc
     │   ├── models.py
-    │   ├── models.pyc
     │   ├── routes.py
-    │   ├── routes.pyc
     │   ├── settings.py
-    │   ├── settings.pyc
-    │   ├── views.py
-    │   └── views.pyc
+    │   └── views.py
     ├── crawler
     │   ├── spiders
     │   ├── __init__.py
-    │   ├── __init__.pyc
     │   ├── items.py
-    │   ├── items.pyc
     │   ├── pipelines.py
-    │   ├── settings.py
-    │   └── settings.pyc
+    │   └── settings.py
     ├── env
     │   ├── bin
     │   ├── include
@@ -45,7 +36,6 @@ crawler/
     ├── README.md
     ├── database.sqlite3
     ├── manage.py
-    ├── manage.pyc
     ├── requirements.txt
     └── scrapy.cfg
 ```
@@ -74,3 +64,7 @@ scrapy crawl douban -o outputs/douban.json
 
 
 ### How to generate dir tree
+
+```
+tree -L 2 -I '*pyc' --dirsfirst
+```
