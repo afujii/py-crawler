@@ -59,7 +59,7 @@ python manage.py runserver
 python manage.py dropdb
 ```
 
-# How to use Linux system cron
+### How to use Linux system cron
 
 ``` bash
 # add env variable
