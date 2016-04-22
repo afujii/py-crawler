@@ -3,6 +3,7 @@
 import scrapy
 import json
 from crawler.items import DoubanItem
+from core.models import db, Movie
 
 
 class DoubanSpider(scrapy.Spider):
@@ -20,4 +21,7 @@ class DoubanSpider(scrapy.Spider):
                 'rating': movie['rating'] and movie['rating']['value'] or -1,
                 'cover': movie['cover'] and movie['cover']['url'] or ''
             }
+            movie = Movie(**info_dict)
+            db.session.add(movie)
+            db.session.commit()
             yield DoubanItem(**info_dict)

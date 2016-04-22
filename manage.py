@@ -2,36 +2,49 @@
 # -*- coding: utf-8 -*-
 
 from flask.ext.script import Server, Shell, Manager, prompt_bool
-from core import app, models
+from core import app
+from core.models import db
+from crawler.cron import run_spiders
+from core.routes import site
 
 
-# create manager
-manager = Manager(app.app)
+app.register_blueprint(site)
 
 
-# run the app
+# 创建 Manager 实例
+manager = Manager(app)
+
+
+# 启动服务器
 manager.add_command('runserver', Server('0.0.0.0', port=2333))
 
 
-# enter shell env
+# 进入交互式命令模式
 def _make_context():
-    return dict(db=models.db)
+    return dict(db=db)
 manager.add_command('shell', Shell(make_context=_make_context))
 
 
-# migrate models into database
+# 创建表结构
 @manager.command
 def migrate():
-    models.db.create_all()
+    db.create_all()
 
 
-# erase database
+# 删除数据库
 @manager.command
-def erase():
+def dropdb():
     if prompt_bool('Drop database?'):
-        models.db.drop_all()
+        db.drop_all()
 
 
-# run the manager
+# 执行定时任务
+@manager.command
+def runcron():
+    # the script will block here until all crawling jobs are finished
+    run_spiders()
+
+
+# 启动服务
 if __name__ == '__main__':
     manager.run()

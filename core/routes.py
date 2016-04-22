@@ -1,9 +1,17 @@
 # -*- coding: utf-8 -*-
 
-from core import views
+from flask import Blueprint
+from core.views import Index
+
+# Blueprint component
+site = Blueprint(
+    name='site',
+    import_name=__name__,
+    template_folder='templates',
+    static_folder='static',
+    url_prefix=None
+)
 
 
 # associate with views
-def register_routes(app):
-    app.add_url_rule('/', view_func=views.Home.as_view('home'))
-    app.add_url_rule('/about', view_func=views.About.as_view('about'))
+site.add_url_rule('/', view_func=Index.as_view('index'))

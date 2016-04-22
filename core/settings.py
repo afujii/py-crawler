@@ -22,5 +22,5 @@ NEWSPIDER_MODULE = 'handler'
 #     'dbname': 'crawler',
 # }
 
-SQLALCHEMY_DATABASE_URI = 'sqlite:///./database.sqlite3'
+SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/test.db'
 SQLALCHEMY_TRACK_MODIFICATIONS = True

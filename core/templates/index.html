@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>最新电影集合</title>
+    <link href="https://cdn.bootcss.com/pure/0.6.0/pure-min.css" rel="stylesheet">
+    <style>
+        * { cursor: default;  -webkit-touch-callout:none;  -webkit-user-select:none;  -moz-user-select:none;  -ms-user-select:none;  user-select:none; }
+        body {  color: #222;  }
+        table {  width: 100%;  border-collapse: collapse;  }
+        img {  height: 150px;  }
+        h1 {  color: #111;  }
+        tr {  transition: all .2s ease;  }
+        tr:hover {  color: rebeccapurple;  background-color: #f8f8f8; text-shadow: 0 0 15px rgba(0, 0, 0, .3);  }
+        td:active {  color: #3A7734;  }
+        .tc {  text-align: center;  }
+    </style>
+</head>
+<body>
+    <table class="pure-table pure-table-horizontal tc">
+        <caption><h1>豆瓣热门电影</h1></caption>
+        <tr>
+            <th></th>
+            <th>标题</th>
+            <th>描述</th>
+            <th>评分</th>
+            <th>封面</th>
+        </tr>
+    {% for movie in movies %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ movie.title }}</td>
+            <td>{{ movie.info }}</td>
+            <td>{{ movie.rating }}</td>
+            <td><img src="{{ movie.cover }}" alt="{{ movie.title }}"></td>
+        </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>

@@ -5,15 +5,19 @@
 ```
 crawler/
     ├── core
+    │   ├── migrations
+    │   ├── static
+    │   ├── templates
     │   ├── __init__.py
-    │   ├── app.py
     │   ├── models.py
     │   ├── routes.py
     │   ├── settings.py
     │   └── views.py
     ├── crawler
+    │   ├── outputs
     │   ├── spiders
     │   ├── __init__.py
+    │   ├── cron.py
     │   ├── items.py
     │   ├── pipelines.py
     │   └── settings.py
@@ -22,19 +26,12 @@ crawler/
     │   ├── include
     │   ├── lib
     │   └── pip-selfcheck.json
-    ├── migrations
-    ├── outputs
-    │   └── douban.json
-    ├── static
-    ├── templates
-    │   ├── about.html
-    │   └── index.html
     ├── tests
     │   ├── __init__.py
     │   └── test.py
     ├── LICENSE
     ├── README.md
-    ├── database.sqlite3
+    ├── crawlercron
     ├── manage.py
     ├── requirements.txt
     └── scrapy.cfg
@@ -43,23 +40,45 @@ crawler/
 ### How To Use
 
 ``` bash
-# install dependencies
+# 0. enable virtualenv
+virtualenv env && source env/bin/activate
+
+# 1. install dependencies
 pip install -r requirements.txt
 
-# run server
-python manage.py runserver
-
-# migrate database
+# 2. migrate database
 python manage.py migrate
 
-# erase database
-python manage.py erase
+# 3. run spiders
+python manage.py runcron
+
+# 4. run server
+python manage.py runserver
+
+# 5. erase database
+python manage.py dropdb
 ```
 
-### How to run spider
+# How to use Linux system cron
 
 ``` bash
-scrapy crawl douban -o outputs/douban.json
+# add env variable
+echo 'export EDITOR="vi"' >> ~/.bashrc && source ~/.bashrc
+
+# list system cron
+crontab -l
+
+# add system cron
+crontab crawlercron
+
+# delete system cron
+crontab -r
+```
+
+### How to use Scrapy (no need, use `python manage.py runcron` instead)
+
+``` bash
+scrapy crawl douban -o crawler/outputs/douban.json
 ```
 
 ### How to generate dir tree

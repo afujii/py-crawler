@@ -1,0 +1,10 @@
+# Cron 命令顺序
+# 分 0-59
+# 时 0-23
+# 日 1-31
+# 月 1-12
+# 周 0-6 周日开始
+# 命令
+
+# 每 30 分钟执行一次
+# 30 * * * * source /path/to/project/env/bin/active && python /path/to/project/manage.py runcron
