@@ -49,7 +49,7 @@ crawler$ virtualenv env
 crawler$ source env/bin/activate
 
 # 3. install python dependencies
-crawler$ cat requirements.txt
+(env)crawler$ cat requirements.txt
   Flask
   Flask-Script
   Flask-SQLAlchemy
@@ -57,7 +57,7 @@ crawler$ cat requirements.txt
   # Flask-Cache
   # blinker
   # markdown
-crawler$ pip install -r requirements.txt
+(env)crawler$ pip install -r requirements.txt
 ```
 
 ### How To Use
@@ -65,18 +65,18 @@ crawler$ pip install -r requirements.txt
 ``` bash
 # 1. migrate database
 # use sqlite3 database at /tmp/crawler.sqlite3
-crawler$ python manage.py migrate
+(env)crawler$ python manage.py migrate
 
 # 2. run spiders
 # can also use `scrapy crawl`
-crawler$ python manage.py runcron
+(env)crawler$ python manage.py runcron
 
 # 3. run server
 # visit http://localhost:2333/
-crawler$ python manage.py runserver
+(env)crawler$ python manage.py runserver
 
 # 4. erase all database tables
-crawler$ python manage.py dropdb
+(env)crawler$ python manage.py dropdb
 ```
 
 ### How to use Linux system cron (optional)
@@ -111,7 +111,7 @@ crawler$ crontab -r
 ### How to use Scrapy (optional, use `python manage.py runcron` instead)
 
 ``` bash
-crawler$ scrapy crawl douban -o crawler/outputs/douban.json
+(env)crawler$ scrapy crawl douban -o crawler/outputs/douban.json
 ```
 
 ### How to generate dir tree
