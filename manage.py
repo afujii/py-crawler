@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from flask.ext.script import Server, Shell, Manager, prompt_bool
+from flask.ext.script import Manager, Server, Shell, prompt_bool
 from core import app
 from core.models import db
 from core.routes import site
@@ -21,9 +21,7 @@ manager.add_command('runserver', Server('0.0.0.0', port=2333))
 
 
 # 进入交互式命令模式
-def _make_context():
-    return dict(db=db)
-manager.add_command('shell', Shell(make_context=_make_context))
+manager.add_command('shell', Shell(make_context=lambda: dict(db=db)))
 
 
 # 创建表结构
