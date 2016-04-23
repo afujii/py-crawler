@@ -4,10 +4,11 @@
 from flask.ext.script import Server, Shell, Manager, prompt_bool
 from core import app
 from core.models import db
-from crawler.cron import run_spiders
 from core.routes import site
+from crawler.cron import run_spiders
 
 
+# 注册路由
 app.register_blueprint(site)
 
 
