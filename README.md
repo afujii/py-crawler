@@ -2,7 +2,7 @@
 
 ### Directories
 
-```
+``` bash
 crawler/
     ├── core
     │   ├── migrations
@@ -37,52 +37,85 @@ crawler/
     └── scrapy.cfg
 ```
 
+### How to install
+
+``` bash
+# 1. install non-python dependencies
+crawler$ sudo apt-get install python-dev python-pip \
+    libxml2-dev libxslt1-dev zlib1g-dev libffi-dev libssl-dev
+
+# 2. enable virtualenv
+crawler$ virtualenv env
+crawler$ source env/bin/activate
+
+# 3. install python dependencies
+crawler$ cat requirements.txt
+  Flask
+  Flask-Script
+  Flask-SQLAlchemy
+  Scrapy
+  # Flask-Cache
+  # blinker
+  # markdown
+crawler$ pip install -r requirements.txt
+```
+
 ### How To Use
 
 ``` bash
-# 0. enable virtualenv
-virtualenv env && source env/bin/activate
+# 1. migrate database
+# use sqlite3 database at /tmp/crawler.sqlite3
+crawler$ python manage.py migrate
 
-# 1. install dependencies
-pip install -r requirements.txt
+# 2. run spiders
+# can also use `scrapy crawl`
+crawler$ python manage.py runcron
 
-# 2. migrate database
-python manage.py migrate
+# 3. run server
+# visit http://localhost:2333/
+crawler$ python manage.py runserver
 
-# 3. run spiders
-python manage.py runcron
-
-# 4. run server
-python manage.py runserver
-
-# 5. erase database
-python manage.py dropdb
+# 4. erase all database tables
+crawler$ python manage.py dropdb
 ```
 
-### How to use Linux system cron
+### How to use Linux system cron (optional)
 
 ``` bash
 # add env variable
-echo 'export EDITOR="vi"' >> ~/.bashrc && source ~/.bashrc
+crawler$ echo 'export EDITOR="vi"' >> ~/.bashrc
+crawler$ source ~/.bashrc
 
 # list system cron
-crontab -l
+crawler$ crontab -l
 
 # add system cron
-crontab crawlercron
+# cron file name should be: name + 'cron'
+crawler$ cat crawlercron
+  # Cron 命令顺序
+  # 分 0-59
+  # 时 0-23
+  # 日 1-31
+  # 月 1-12
+  # 周 0-6 周日开始
+  # 命令
+
+  # 每 30 分钟执行一次
+  # 30 * * * * source /path/to/project/env/bin/active && python /path/to/project/manage.py runcron
+crawler$ crontab crawlercron
 
 # delete system cron
-crontab -r
+crawler$ crontab -r
 ```
 
-### How to use Scrapy (no need, use `python manage.py runcron` instead)
+### How to use Scrapy (optional, use `python manage.py runcron` instead)
 
 ``` bash
-scrapy crawl douban -o crawler/outputs/douban.json
+crawler$ scrapy crawl douban -o crawler/outputs/douban.json
 ```
 
 ### How to generate dir tree
 
-```
-tree -L 2 -I '*pyc' --dirsfirst
+``` bash
+crawler$ tree -L 2 -I '*pyc' --dirsfirst
 ```
