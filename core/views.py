@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import json
-from flask import render_template, request, views, abort
+from flask import render_template, views, abort
 from jinja2 import TemplateNotFound
 from core.models import Movie
 
@@ -13,3 +12,6 @@ class Index(views.MethodView):
             return render_template('index.html', movies=movies)
         except TemplateNotFound:
             abort(404)
+
+    def post(self):
+        return 'POST'

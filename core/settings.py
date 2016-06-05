@@ -8,10 +8,10 @@ DEBUG = True
 SECRET_KEY = 'crawler'
 
 # scrapy settings for crawler project
-BOT_NAME = 'crawler'
-
-SPIDER_MODULES = ['handler']
-NEWSPIDER_MODULE = 'handler'
+# BOT_NAME = 'crawler'
+#
+# SPIDER_MODULES = ['handler']
+# NEWSPIDER_MODULE = 'handler'
 
 # database config
 # DATABASE = {
@@ -22,5 +22,5 @@ NEWSPIDER_MODULE = 'handler'
 #     'dbname': 'crawler',
 # }
 
-SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/crawler.sqlite3'
+SQLALCHEMY_DATABASE_URI = 'mysql://root:@localhost/crawler'
 SQLALCHEMY_TRACK_MODIFICATIONS = True
