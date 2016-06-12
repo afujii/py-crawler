@@ -34,7 +34,7 @@ def save_subject_detail(id, type):
     res = BeautifulSoup(requests.get(SUBJECT_API+id).text)
     m = Movie()
     #query id of category
-    cate = res['genres'][0]
+    cate = res['id']
     c = Category.query.filter_by(category=cate).first()
     if c:
         cate = c.id
@@ -43,13 +43,7 @@ def save_subject_detail(id, type):
         db.session.add(temp)
         db.session.commit()
         cate = temp.id
-    m.category_id = cate
-    m.source_id = 0
-    m.title = res['title']
-    m.summary = res['summary']
-    m.director = ','.join(map(lambda x: x['name'], res['directors']))
-    m.rating = res['rating']['average']
-    m.cover = res['images']['large']
+
     # m.crawl_time = datetime.datetime
     db.session.add(m)
     db.session.commit()

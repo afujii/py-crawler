@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import time
+import hashlib
 from flask import views, request
 from core.models import db, User
 from core.base import res
@@ -17,12 +18,20 @@ class LoginApi(views.MethodView):
         if user is None:
             return res(404)
         else:
-            return res(200, user)
+            return res(200, {
+                'auth_key': hashlib.sha1(user.username).hexdigest()
+            })
 
 
 class RegisterApi(views.MethodView):
     def post(self):
-        user = User(**request.form)
+        params = request.form
+        user = User(
+            username = params['username'],
+            password = params['password']
+        )
         db.session.add(user)
         db.session.commit()
-        return res(200)
+        return res(200, {
+            'auth_user': user.username
+        })

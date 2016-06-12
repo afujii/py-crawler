@@ -21,7 +21,7 @@ db = SQLAlchemy(app)
 # 用户
 class User(db.Model):
   # about auth
-  id = db.Column(db.BigInteger, primary_key=True)
+  id = db.Column(db.Integer, primary_key=True)
   username = db.Column(db.String(256))
   password = db.Column(db.String(64))
 
