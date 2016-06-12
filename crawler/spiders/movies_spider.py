@@ -2,7 +2,7 @@
 
 import scrapy
 import json
-from core.models import db, Movie
+from core.models import db, Movie, Category
 from crawler.spiders.subjects_spider import save_subject_detail
 
 
@@ -19,9 +19,10 @@ class MoviesSpider(scrapy.Spider):
 
     def parse(self, response):
         res = json.loads(response.body)
-        if res['subject_collection']['id'] == 'movie_showing':
-            type = 0
-        else:
-            type = 1
+        subject_type = res['subject_collection']['id']  # movie_showing or movie_latest
         for subject in res['subject_collection_items']:
-            save_subject_detail(subject['id'], type)
+            subject_id = subject['id']
+            try:
+                save_subject_detail(subject_id, subject_type)
+            except StandardError, e:
+                return
