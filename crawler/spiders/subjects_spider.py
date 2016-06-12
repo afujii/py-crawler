@@ -2,7 +2,8 @@
 
 import scrapy
 import json
-from core.models import db, Movie
+from core import db
+from core.models import Movie
 from crawler.items import SubjectItem
 
 SUBJECT_API = 'https://api.douban.com/v2/movie/subject/'
