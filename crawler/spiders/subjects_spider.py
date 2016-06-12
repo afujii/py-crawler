@@ -25,7 +25,7 @@ class SubjectsSpider(scrapy.Spider):
 
 
 def save_subject_detail(id):
-    res = json.loads(requests.get(SUBJECT_API+id).text)
+    res = BeautifulSoup(requests.get(SUBJECT_API+id).text)
     m = Movie()
     #query id of category
     cate = res['genres'][0]
