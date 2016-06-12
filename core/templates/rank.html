@@ -1,47 +1,49 @@
 {% extends "_layout.html" %}
 
 
-{% block title %}
-    首页
-{% endblock %}
+{% block title %}分类排行{% endblock %}
 
 
 {% block theme %}
+<div class="theme">
     <h1>分类排行</h1>
     <p>分类体验花式生活，创造多彩电影体验</p>
+</div>
 {% endblock %}
 
 
 {% block nav %}
+<nav class="top-nav">
     <ul class="nav main-nav">
         <li class="active">动作</li>
         <li>喜剧</li>
         <li>爱情</li>
         <li>惊悚</li>
     </ul>
+</nav>
 {% endblock %}
 
 
 {% block content %}
-    <div class="rank">
-        {% for movie in movies %}
-            <div class="row">
-                <div class="col-md-10">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h1 class="title">{{ movie.title }}</h1>
-                        </div>
-                        <div class="col-md-6 text-right">
-                            <span class="rating">{{ movie.rating }} 分</span>
-                        </div>
+<main class="rank">
+    {% for movie in movies %}
+        <div class="row">
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1 class="title">{{ movie.title }}</h1>
                     </div>
-                    <p class="summary">{{ movie.info }}</p>
+                    <div class="col-md-6 text-right">
+                        <span class="rating">{{ movie.rating }} 分</span>
+                    </div>
                 </div>
-
-                <div class="col-md-2">
-                    <img src="{{ movie.cover }}" alt="{{ movie.title }}">
-                </div>
+                <p class="summary">{{ movie.info }}</p>
             </div>
-        {% endfor %}
-    </div>
+
+            <div class="col-md-2">
+                <img src="{{ movie.cover }}" alt="{{ movie.title }}">
+            </div>
+        </div>
+    {% endfor %}
+</main>
 {% endblock %}

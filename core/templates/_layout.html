@@ -17,18 +17,12 @@
             <a href="/rank">分类<br>排行</a>
         </aside>
 
-        <div class="container-fluid">
-            <div class="theme">
-                {% block theme %}{% endblock %}
-            </div>
+        <div class="container-fluid app-container">
+            {% block theme %}{% endblock %}
 
-            <nav class="top-nav">
-                {% block nav %}{% endblock %}
-            </nav>
+            {% block nav %}{% endblock %}
 
-            <main class="content">
-                {% block content %}{% endblock %}
-            </main>
+            {% block content %}{% endblock %}
         </div>
 
     </div>

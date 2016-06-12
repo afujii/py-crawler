@@ -99,6 +99,10 @@
 }
 
 /************************ content ************************/
+.app-container {
+    height: 100%;
+}
+
 .content {
     position: absolute;
     top: 60px;
