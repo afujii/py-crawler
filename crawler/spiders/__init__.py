@@ -1,3 +1,3 @@
 # spiders
 from crawler.spiders.movies_spider import MoviesSpider
-from crawler.spiders.subject_spider import SubjectsSpider
+from crawler.spiders.subjects_spider import SubjectsSpider

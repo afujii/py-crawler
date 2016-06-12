@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 
 from flask.ext.script import Manager, Server, Shell, prompt_bool
-from core import app, db
+from core import app
+from core.models import db
 from core.routes import site
 from crawler.runner import run_spiders
 

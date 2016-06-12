@@ -2,8 +2,7 @@
 
 import scrapy
 import json
-from core import db
-from core.models import Movie
+from core.models import db, Movie
 
 
 class MoviesSpider(scrapy.Spider):
