@@ -23,7 +23,7 @@ class SubjectsSpider(scrapy.Spider):
         res = json.loads(response.body)
         print res
 
-def save_subject_detail(id):
-    r = requests.get(SUBJECT_API+id)
+    def save_subject_detail(id):
+        r = requests.get(SUBJECT_API+id)
 
 
