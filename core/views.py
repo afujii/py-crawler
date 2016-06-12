@@ -2,7 +2,7 @@
 
 from flask import render_template, views, abort
 from jinja2 import TemplateNotFound
-from core.models import Movie, db
+from core.models import Movie, InTheaters, ComingSoon, Ranking, db
 
 
 class LoginView(views.MethodView):
