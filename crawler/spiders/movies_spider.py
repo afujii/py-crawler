@@ -25,4 +25,4 @@ class MoviesSpider(scrapy.Spider):
             try:
                 save_subject_detail(subject_id, subject_type)
             except StandardError, e:
-                return
+                pass

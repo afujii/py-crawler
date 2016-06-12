@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', init)
 function init() {
     const route = window.location.pathname
 
+    // 禁止未登录用户访问其他页面
     if (!/\/$|\/login$/.test(route) && !window.sessionStorage.getItem('auth_key')) {
         window.location.pathname = '/'
         return false
@@ -34,8 +35,6 @@ function initInTheaters() {
     console.log('in-theaters inited')
 }
 
-
-
 //
 // coming soon page
 // ----------------------------------------------------------------------------
@@ -43,8 +42,6 @@ function initComingSoon() {
     $('a[href="/coming-soon"]').addClass('active')
     console.log('coming-soon inited')
 }
-
-
 
 //
 // rank page

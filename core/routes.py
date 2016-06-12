@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from flask import Blueprint
 import json
+from flask import Blueprint
 import core.views as Views
-from core.base import res
 import core.apis as Apis
+
 
 # Blueprint component
 site = Blueprint(

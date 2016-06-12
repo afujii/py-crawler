@@ -8,27 +8,12 @@ from bs4 import BeautifulSoup
 
 
 # SUBJECT_API = 'https://api.douban.com/v2/movie/subject/'
-SUBJECT_API = 'https://movie.douban.com/subject/%s/'
-
-
-class SubjectsSpider(scrapy.Spider):
-    name = 'subjects'
-    allowed_domains = ['douban.com']
-    start_urls = []
-
-    def __init__(self, category=None, *args, **kwargs):
-        super(SubjectsSpider, self).__init__(*args, **kwargs)
-        for subject in subjects:
-            id = subject['id']
-            self.start_urls.append('https://api.douban.com/v2/movie/subject/%s/' % id)
-
-    def parse(self, response):
-        res = json.loads(response.body)
-        print res
-
+SUBJECT_API =
+'https://movie.douban.com/subject/%s/'
 
 def save_subject_detail(id, type):
-    s = BeautifulSoup(requests.get(SUBJECT_API % id).text, 'html.parser')
+    response = requests.get(SUBJECT_API % id).text
+    s = BeautifulSoup(response, 'html.parser')
 
     try:
         movie = Movie()
