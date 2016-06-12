@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from flask import request
-import json, uuid, os
 from jsonpickle import encode
 
 # filter extra attribute in objects extends flask.ext.SQLAlchemy
