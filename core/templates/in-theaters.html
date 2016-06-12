@@ -26,7 +26,7 @@
 <main class="in-theaters">
 
 {% for movie in movies %}
-<div class="row">
+<!-- <div class="row">
     <div class="col-md-10">
         <div class="row">
             <div class="col-md-6">
@@ -42,8 +42,45 @@
     <div class="col-md-2">
         <img src="{{ movie.cover }}" alt="{{ movie.title }}">
     </div>
+</div> -->
+<div style="margin-left:35%;padding: 10px 10px;border-bottom: dotted #ccc 2px;margin-top: 70px;">
+<div class="pull-left" style="width:50%;padding: 30px 40px">
+
+<div class="title">{{ movie.title }}
+</div>
+
+<div class="summary">
+    {{movie.summary}}
+</div>
+
+</div>
+<div class="pull-left">
+<img class="cover" src="{{ movie.cover }}" alt="{{ movie.title }}">
+</div>
+<div class="clearfix"></div>
 </div>
 {% endfor %}
 
 </main>
 {% endblock %}
+<style type="text/css">
+.title {
+    padding:5px 0px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.point {
+    float: right;
+    text-align: right;
+    color:#FFFF00;
+}
+.summary {
+    font-size: 12px;
+font-weight: normal;
+line-height: 20px;
+    color: #666;
+}
+.cover {
+    width: 100px;
+}
+</style>
