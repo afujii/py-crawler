@@ -20,3 +20,24 @@ main img {
 main .summary {
     margin-top: 30px;
 }
+
+/********************* main ******************************/
+.login-register-box {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    width: 400px;
+    transform: translateX(-50%);
+}
+
+.login-register-box > .tab-content {
+    margin-top: 15px;
+}
+
+.login-register-box .input-group {
+    width: 100%;
+}
+
+.login-register-box .input-group-addon {
+    width: 80px;
+}

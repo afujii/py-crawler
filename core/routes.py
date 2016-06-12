@@ -16,6 +16,7 @@ site = Blueprint(
 
 # associate with views
 site.add_url_rule('/', view_func=Views.InTheatersView.as_view('index'))
+site.add_url_rule('/login', view_func=Views.LoginView.as_view('login'))
 site.add_url_rule('/in-theaters', view_func=Views.InTheatersView.as_view('in-theaters'))
 site.add_url_rule('/coming-soon', view_func=Views.ComingSoonView.as_view('coming-soon'))
 site.add_url_rule('/rank', view_func=Views.RankView.as_view('rank'))

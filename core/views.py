@@ -5,6 +5,11 @@ from jinja2 import TemplateNotFound
 from core.models import Movie
 
 
+class LoginView(views.MethodView):
+    def get(self):
+        return render_template('login.html')
+
+
 class InTheatersView(views.MethodView):
     def get(self):
         try:
