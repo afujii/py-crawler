@@ -22,18 +22,18 @@
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-addon">用户名</div>
-                        <input type="text" class="form-control" placeholder="请输入用户名">
+                        <input type="text" class="form-control" placeholder="请输入用户名" id="login-username">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-addon">密码</div>
-                        <input type="password" class="form-control" placeholder="请输入密码" id="btn-login">
+                        <input type="password" class="form-control" placeholder="请输入密码" id="login-password">
                     </div>
                 </div>
 
-                <button class="btn btn-primary btn-block">登录</button>
+                <button class="btn btn-primary btn-block" id="btn-login">登录</button>
             </form>
         </div>
         <!-- end login from -->
@@ -44,14 +44,14 @@
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-addon">用户名</div>
-                        <input type="text" class="form-control" placeholder="请输入用户名">
+                        <input type="text" class="form-control" placeholder="请输入用户名" id="register-username">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-addon">密码</div>
-                        <input type="password" class="form-control" placeholder="请输入密码">
+                        <input type="password" class="form-control" placeholder="请输入密码" id="register-password">
                     </div>
                 </div>
 
@@ -62,7 +62,7 @@
                     </div>
                 </div>
 
-                <button class="btn btn-primary btn-block">注册</button>
+                <button class="btn btn-primary btn-block" id="btn-register">注册</button>
             </form>
         </div>
         <!-- end register form -->
@@ -71,11 +71,3 @@
 
 </div>
 {% endblock %}
-
-<script type="text/javascript">
-$(document).ready(function(){
-    $('#btn-login').on('click', function(){
-        $.post('/api/login')
-    });
-});
-</script>
