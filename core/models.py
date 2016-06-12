@@ -52,6 +52,7 @@ class Movie(db.Model):
     show_at = db.Column(db.BigInteger)  # 上映日期
     crawl_at = db.Column(db.BigInteger)  # 爬取时间
     genres = db.Column(db.String(256))  # 分类 id
+    category = db.Column(db.String(256))
 
 
 # 即将上映
