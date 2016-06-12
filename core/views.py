@@ -24,11 +24,16 @@ class ComingSoonView(views.MethodView):
 
 class RankView(views.MethodView):
     def get(self):
-        # sort = request.args['sort']
-        movies = Movie.query.order_by(Movie.rating.desc(), Movie.rating_count.desc()).all()
         # filter all genres
+        all_movies = Movie.query.all()
         genres = set()
-        for m in movies:
+        for m in all_movies:
             for g in m.genres.split(','):
                 genres.add(g)
-        return render_template('rank.html', movies=movies, genres=genres)
+        # display sorted
+        sort = request.args.get('sort') or ''
+        movies = Movie.query.filter(Movie.genres.like('%' + sort + '%')).order_by(Movie.rating.desc(), Movie.rating_count.desc()).all()
+        if sort == u'全部' or not sort:
+            return render_template('rank.html', movies=all_movies, genres=genres)
+        else:
+            return render_template('rank.html', movies=movies, genres=genres)

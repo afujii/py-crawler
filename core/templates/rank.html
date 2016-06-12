@@ -15,8 +15,9 @@
 {% block nav %}
 <nav class="top-nav">
     <ul class="nav main-nav">
+        <li class="genre {% if not request.args.get('sort') or request.args.get('sort') == '全部' %}active{% endif %}">全部</li>
         {% for genre in genres %}
-            {% if request.args.get('sort') == genre or (loop.index == 1 and not request.args.get('sort')) %}
+            {% if request.args.get('sort') == genre %}
                 <li class="genre active">{{ genre }}</li>
             {% else %}
                 <li class="genre">{{ genre }}</li>
