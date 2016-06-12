@@ -29,7 +29,7 @@
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-addon">密码</div>
-                        <input type="password" class="form-control" placeholder="请输入密码">
+                        <input type="password" class="form-control" placeholder="请输入密码" id="btn-login">
                     </div>
                 </div>
 
@@ -71,3 +71,11 @@
 
 </div>
 {% endblock %}
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#btn-login').on('click', function(){
+        $.post('/api/login')
+    });
+});
+</script>
