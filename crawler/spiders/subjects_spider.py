@@ -2,8 +2,8 @@
 
 import scrapy, datetime
 import json
-from core import db
-from core.models import Movie
+from core.models import db, Movie
+from crawler.items import SubjectItem
 
 SUBJECT_API = 'https://api.douban.com/v2/movie/subject/'
 
