@@ -6,8 +6,8 @@
 
 {% block theme %}
 <div class="theme">
-    <h1>即将上映</h1>
-    <p>关注未来上映电影，规划美好电影旅程</p>
+    <h1>新片速递</h1>
+    <p>关注最新上映电影，规划美好电影旅程</p>
 </div>
 {% endblock %}
 
@@ -28,17 +28,17 @@
         <div class="row">
             <div class="col-md-10">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-9">
                         <h1 class="title">
                             {{ movie.title }}
-                            <small>上映：2016-06-12</small>
+                            <small>上映：{{ movie.show_at[0:10] }}</small>
                         </h1>
                     </div>
-                    <div class="col-md-6 text-right">
-                        <span class="rating">{{ movie.rating }} 人想看</span>
+                    <div class="col-md-3 text-right">
+                        <span class="rating">{{ movie.rating_count }}人想看</span>
                     </div>
                 </div>
-                <p class="summary">{{ movie.info }}</p>
+                <p class="summary">{{ movie.summary }}</p>
             </div>
 
             <div class="col-md-2">

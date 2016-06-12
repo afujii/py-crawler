@@ -15,10 +15,9 @@
 {% block nav %}
 <nav class="top-nav">
     <ul class="nav main-nav">
-        <li class="active">动作</li>
-        <li>喜剧</li>
-        <li>爱情</li>
-        <li>惊悚</li>
+        {% for genre in genres %}
+        <li>{{ genre }}</li>
+        {% endfor %}
     </ul>
 </nav>
 {% endblock %}
@@ -37,7 +36,7 @@
                         <span class="rating">{{ movie.rating }} 分</span>
                     </div>
                 </div>
-                <p class="summary">{{ movie.info }}</p>
+                <p class="summary">{{ movie.summary }}</p>
             </div>
 
             <div class="col-md-2">

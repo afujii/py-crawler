@@ -6,7 +6,7 @@
 
 {% block theme %}
 <div class="theme">
-    <h1>正在上映</h1>
+    <h1>正在热映</h1>
     <p>关心正在热映电影，体验时髦生活</p>
 </div>
 {% endblock %}
@@ -24,7 +24,6 @@
 
 {% block content %}
 <main class="in-theaters">
-
     {% for movie in movies %}
     <div class="row">
         <div class="col-md-10">
@@ -33,7 +32,7 @@
                     <h1 class="title">{{ movie.title }}</h1>
                 </div>
                 <div class="col-md-6 text-right">
-                    <span class="rating">{{ movie.rating }} 分</span>
+                    <span class="rating">{{ movie.rating }}分</span>
                 </div>
             </div>
             <p class="summary">{{ movie.summary }}</p>
@@ -44,6 +43,5 @@
         </div>
     </div>
     {% endfor %}
-
 </main>
 {% endblock %}
