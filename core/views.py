@@ -17,7 +17,7 @@ class InTheatersView(views.MethodView):
             # movies = []
             # for l in list:
             #     movies.append(list[1])
-            movies = Movie.query.filter_by(category='movie_latest').order_by(Movie.rating.desc()).all()
+            movies = Movie.query.filter_by(category='movie_showing').order_by(Movie.rating.desc()).all()
             print(movies)
             return render_template('in-theaters.html', movies=movies)
         except TemplateNotFound:
@@ -30,7 +30,7 @@ class InTheatersView(views.MethodView):
 class ComingSoonView(views.MethodView):
     def get(self):
         try:
-            list = db.session.query(ComingSoon, Movie).join(Movie, Movie.id==ComingSoon.movie_id).all()
+            movies = Movie.query.filter_by(category='movie_latest').order_by(Movie.rating.desc()).all()
             movies = []
             for l in list:
                 movies.append(list[1])
