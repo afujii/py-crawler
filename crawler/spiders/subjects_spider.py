@@ -42,7 +42,7 @@ def save_subject_detail(id, type):
         movie.show_at =      datetime.strptime(s.body.find(attrs={'property':'v:initialReleaseDate'}).get_text()[0:10], '%Y-%m-%d')
         movie.crawl_at =     datetime.utcnow()
         movie.genres =       ','.join(map(lambda x: x.get_text(), s.body.find_all(attrs={'property':'v:genre'}))).strip()
-
+        movie.category = type
         print 'saving movie => ', movie.title
         db.session.add(movie)
         db.session.commit()
