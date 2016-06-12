@@ -39,7 +39,7 @@ def save_subject_detail(id):
     m.category_id = cate
     m.source_id = 0
     m.title = res['title']
-    m.info = res['summary']
+    m.summary = res['summary']
     m.director = ','.join(map(lambda x: x['name'], res['directors']))
     m.rating = res['rating']['average']
     m.cover = res['images']['large']
