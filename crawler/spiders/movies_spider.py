@@ -19,5 +19,9 @@ class MoviesSpider(scrapy.Spider):
 
     def parse(self, response):
         res = json.loads(response.body)
-        for subject in res['subjects']:
-            save_subject_detail(subject['id'])
+        if res['subject_collection']['id'] == 'movie_showing':
+            type = 0
+        else:
+            type = 1
+        for subject in res['subject_collection_items']:
+            save_subject_detail(subject['id'], type)

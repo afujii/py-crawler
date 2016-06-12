@@ -5,6 +5,12 @@ from core.models import db, Movie, Category
 from crawler.items import SubjectItem
 from bs4 import BeautifulSoup
 
+'''
+doc here ~
+https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/#id4
+'''
+
+
 # SUBJECT_API = 'https://api.douban.com/v2/movie/subject/'
 SUBJECT_API = 'https://m.douban.com/movie/subject/'
 
