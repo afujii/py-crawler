@@ -30,7 +30,7 @@ class SubjectsSpider(scrapy.Spider):
         print res
 
 
-def save_subject_detail(id):
+def save_subject_detail(id, type):
     res = BeautifulSoup(requests.get(SUBJECT_API+id).text)
     m = Movie()
     #query id of category
