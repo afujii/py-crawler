@@ -23,7 +23,7 @@
 
 
 {% block content %}
-<main class="in-theaters">
+<main class="in-theaters" style="padding: 70px 0px;">
 
 {% for movie in movies %}
 <!-- <div class="row">
@@ -43,14 +43,17 @@
         <img src="{{ movie.cover }}" alt="{{ movie.title }}">
     </div>
 </div> -->
-<div style="margin-left:35%;padding: 10px 10px;border-bottom: dotted #ccc 2px;margin-top: 70px;">
+<div style="margin-left:35%;padding: 10px 10px;border-bottom: dotted #ccc 2px;">
 <div class="pull-left" style="width:50%;padding: 30px 40px">
-
+<div class="rating">
+    {{movie.rating}}fen
+</div>
 <div class="title">{{ movie.title }}
+
 </div>
 
 <div class="summary">
-    {{movie.summary}}
+{{movie.summary}}
 </div>
 
 </div>
@@ -69,18 +72,29 @@
     font-size: 18px;
     font-weight: bold;
 }
-.point {
-    float: right;
+.rating {
+    position: relative;
+    right: 10px;
     text-align: right;
     color:#FFFF00;
 }
 .summary {
     font-size: 12px;
-font-weight: normal;
-line-height: 20px;
+    font-weight: normal;
+    line-height: 20px;
     color: #666;
 }
 .cover {
+    margin-top: 40px;
     width: 100px;
 }
 </style>
+<script type="text/javascript">
+function summary(s) {
+    if(50>s.length) {
+        return s.substring(0, 50);
+    }else {
+        return s;
+    }
+}
+</script>
