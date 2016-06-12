@@ -35,6 +35,7 @@ function onLogin() {
         console.log('login succeed', res)
         window.sessionStorage.setItem('auth_key', res.data.auth_key)
         window.alert('登录成功')
+        window.location.href = '/in-theaters'
         return false
     }).catch(err => {
         console.error('login faild', err)
