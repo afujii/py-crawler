@@ -30,6 +30,7 @@ class RegisterApi(views.MethodView):
             username = params['username'],
             password = params['password']
         )
+
         db.session.add(user)
         db.session.commit()
         return res(200, {

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from flask import render_template, views, abort
+from flask import render_template, request, views, abort
 from jinja2 import TemplateNotFound
 from core.models import Movie, InTheaters, ComingSoon, Ranking, db
 
@@ -36,6 +36,7 @@ class ComingSoonView(views.MethodView):
 class RankView(views.MethodView):
     def get(self):
         try:
+            sort = request.args['sort']
             movies = Movie.query.order_by(Movie.rating.desc(), Movie.rating_count.desc()).all()
             # filter all genres
             genres = set()

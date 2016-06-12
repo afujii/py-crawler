@@ -31,9 +31,14 @@
     font-size: 20px;
 }
 
-.sidebar a:hover {
+.sidebar a.active {
     color: white;
     background-color: #e78170;
+}
+
+.sidebar a:hover {
+    color: white;
+    background-color: #de533a;
 }
 
 .sidebar a:active {

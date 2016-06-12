@@ -16,7 +16,11 @@
 <nav class="top-nav">
     <ul class="nav main-nav">
         {% for genre in genres %}
-        <li>{{ genre }}</li>
+            {% if request.args.get('sort') == genre or (loop.index == 1 and not request.args.get('sort')) %}
+                <li class="genre active">{{ genre }}</li>
+            {% else %}
+                <li class="genre">{{ genre }}</li>
+            {% endif %}
         {% endfor %}
     </ul>
 </nav>

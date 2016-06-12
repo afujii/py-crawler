@@ -4,7 +4,14 @@
 document.addEventListener('DOMContentLoaded', init)
 
 function init() {
-    switch (window.location.pathname) {
+    const route = window.location.pathname
+
+    if (!/\/$|\/login$/.test(route) && !window.sessionStorage.getItem('auth_key')) {
+        window.location.pathname = '/'
+        return false
+    }
+
+    switch (route) {
         case '/in-theaters':
             initInTheaters()
             break
@@ -17,14 +24,14 @@ function init() {
         default:
             initLogin()
     }
-    console.log('app inited')
 }
 
 //
 // in theaters page
 // ----------------------------------------------------------------------------
 function initInTheaters() {
-
+    $('a[href="/in-theaters"]').addClass('active')
+    console.log('in-theaters inited')
 }
 
 
@@ -33,7 +40,8 @@ function initInTheaters() {
 // coming soon page
 // ----------------------------------------------------------------------------
 function initComingSoon() {
-
+    $('a[href="/coming-soon"]').addClass('active')
+    console.log('coming-soon inited')
 }
 
 
@@ -42,15 +50,24 @@ function initComingSoon() {
 // rank page
 // ----------------------------------------------------------------------------
 function initRank() {
+    $('a[href="/rank"]').addClass('active')
+    $('.genre').on('click', onSelectGenre)
 
+    console.log('rank inited')
+}
+
+function onSelectGenre() {
+    window.location.search = '?sort=' + $(this).text()
 }
 
 //
 // login page
 // ----------------------------------------------------------------------------
 function initLogin() {
+    $('a[href="/login"]').addClass('active')
     $('#btn-login').on('click', onLogin)
     $('#btn-register').on('click', onRegister)
+    console.log('login inited')
 }
 
 function onLogin() {
