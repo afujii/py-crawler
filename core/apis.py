@@ -1,27 +1,28 @@
 # -*- coding: utf-8 -*-
 
+import time
 from flask import views, request
-from core.models import User
+from core.models import db, User
 from core.base import res
 
 
 class LoginApi(views.MethodView):
     def post(self):
         params = request.form
-        u = User.query.filter_by(
+        user = User.query.filter_by(
             username = params['username'],
-            password = params['password']).first()
-        if u is None:
-            return res(-1)
+            password = params['password']
+        ).first()
+
+        if user is None:
+            return res(404)
         else:
-            return res(200, u)
+            return res(200, user)
 
 
 class RegisterApi(views.MethodView):
     def post(self):
-        u = User(**request.form)
-        u.is_expired = 0
-        u.register_time = time.time()*1000
-        db.session.add(u)
+        user = User(**request.form)
+        db.session.add(user)
         db.session.commit()
         return res(200)

@@ -22,15 +22,8 @@ db = SQLAlchemy(app)
 class User(db.Model):
   # about auth
   id = db.Column(db.BigInteger, primary_key=True)
-  email = db.Column(db.String(120))
-  username = db.Column(db.String(40))
-  password = db.Column(db.String(40))
-  is_expired = db.Column(db.Integer)
-  register_time = db.Column(db.BigInteger)
-  nick = db.Column(db.String(30))
-  age = db.Column(db.Integer)
-  sex = db.Column(db.Integer)
-  description = db.Column(db.Text)
+  username = db.Column(db.String(256))
+  password = db.Column(db.String(64))
 
 
 # 分类
