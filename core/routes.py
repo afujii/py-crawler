@@ -3,7 +3,7 @@
 from flask import Blueprint, request
 import json
 import core.views as Views
-
+from core.base import res
 # Blueprint component
 site = Blueprint(
     name='site',
@@ -35,9 +35,9 @@ def login():
 
 @site.route('/api/register', methods=['POST'])
 def register():
-  u = User(**request.form)
-  u.is_expired = 0
-  u.register_time = time.time()*1000
-  db.session.add(u)
-  db.session.commit()
-  return res(200)
+    u = User(**request.form)
+    u.is_expired = 0
+    u.register_time = time.time()*1000
+    db.session.add(u)
+    db.session.commit()
+    return res(200)
