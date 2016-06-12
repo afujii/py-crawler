@@ -15,9 +15,9 @@ class RankItem(scrapy.Item):
     id = scrapy.Field()
 
 
+class MovieItem(scrapy.Item):
+    pass
+
+
 class SubjectItem(scrapy.Item):
-    id = scrapy.Field()
-    title = scrapy.Field()
-    rating = scrapy.Field()
-    cover = scrapy.Field()
-    summary = scrapy.Field()
+    pass
