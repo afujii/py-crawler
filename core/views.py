@@ -13,11 +13,12 @@ class LoginView(views.MethodView):
 class InTheatersView(views.MethodView):
     def get(self):
         try:
-            list = db.session.query(InTheaters, Movie).join(Movie, Movie.id==InTheaters.movie_id).all()
-            movies = []
-            for l in list:
-                movies.append(list[1])
-            # movies = Movie.query.order_by(Movie.rating.desc()).all()
+            # list = db.session.query(InTheaters, Movie).join(Movie, Movie.id==InTheaters.movie_id).all()
+            # movies = []
+            # for l in list:
+            #     movies.append(list[1])
+            movies = Movie.query.filter_by(category='movie_latest').order_by(Movie.rating.desc()).all()
+            print(movies)
             return render_template('in-theaters.html', movies=movies)
         except TemplateNotFound:
             abort(404)
