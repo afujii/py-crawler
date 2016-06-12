@@ -12,10 +12,13 @@ class MoviesSpider(scrapy.Spider):
     start_urls = [
         'https://api.douban.com/v2/movie/coming_soon',
         'https://api.douban.com/v2/movie/in_theaters',
-        'https://api.douban.com/v2/movie/top250',
+        # 'https://api.douban.com/v2/movie/top250',
     ]
 
     def parse(self, response):
+        print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
         res = json.loads(response.body)
+
         for subject in res['subjects']:
-            save_subject_detail(subject['id'])
+            pass
+            # save_subject_detail(subject['id'])
