@@ -2,6 +2,7 @@
 
 from flask import views, request
 from core.models import User
+from core.base import res
 
 
 class LoginApi(views.MethodView):
