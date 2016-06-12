@@ -1,0 +1,48 @@
+{% extends "_layout.html" %}
+
+
+{% block title %}
+    首页
+{% endblock %}
+
+
+{% block theme %}
+    <h1>分类排行</h1>
+    <p>分类体验花式生活，创造多彩电影体验</p>
+{% endblock %}
+
+
+{% block nav %}
+    <ul class="nav">
+        <li class="active">动作</li>
+        <li>喜剧</li>
+        <li>爱情</li>
+        <li>惊悚</li>
+    </ul>
+{% endblock %}
+
+
+{% block content %}
+    <div class="rank">
+        {% for movie in movies %}
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h1 class="title">{{ movie.title }}</h1>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <span class="rating">{{ movie.rating }} 分</span>
+                        </div>
+                    </div>
+                    <p class="summary">{{ movie.info }}</p>
+                </div>
+
+                <div class="col-md-2">
+                    <!-- <img src="{{ movie.cover }}" alt="{{ movie.title }}"> -->
+                    <img src="/site/img/theme-1.jpg">
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

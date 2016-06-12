@@ -5,7 +5,7 @@ from flask.ext.script import Manager, Server, Shell, prompt_bool
 from core import app
 from core.models import db
 from core.routes import site
-from crawler.cron import run_spiders
+from crawler.runner import run_spiders
 
 
 # 注册路由
@@ -21,7 +21,12 @@ manager.add_command('runserver', Server('0.0.0.0', port=2333))
 
 
 # 进入交互式命令模式
-manager.add_command('shell', Shell(make_context=lambda: dict(db=db)))
+manager.add_command('shell', Shell(make_context=lambda: dict(
+    app=app,
+    db=db,
+    routes=site,
+    run_spiders=run_spiders,
+)))
 
 
 # 创建表结构

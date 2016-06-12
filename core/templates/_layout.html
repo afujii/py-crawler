@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/site/css/app.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <aside class="sidebar">
+            <h1>影</h1>
+            <a href="/in-theaters">正在<br>上映</a>
+            <a href="/coming-soon">即将<br>上映</a>
+            <a href="/rank">分类<br>排行</a>
+        </aside>
+
+        <div class="theme">
+            {% block theme %}{% endblock %}
+        </div>
+
+        {% block nav %}{% endblock %}
+
+        <main class="container-fluid content">
+            {% block content %}{% endblock %}
+        </main>
+
+    </div>
+
+    <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/site/js/app.js"></script>
+</body>
+</html>

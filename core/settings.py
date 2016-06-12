@@ -22,5 +22,6 @@ SECRET_KEY = 'crawler'
 #     'dbname': 'crawler',
 # }
 
-SQLALCHEMY_DATABASE_URI = 'mysql://root:@localhost/crawler'
+# SQLALCHEMY_DATABASE_URI = 'mysql://root:@localhost/crawler'
+SQLALCHEMY_DATABASE_URI = 'sqlite:///./database.sqlite3'
 SQLALCHEMY_TRACK_MODIFICATIONS = True
