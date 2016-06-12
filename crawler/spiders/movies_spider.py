@@ -21,9 +21,6 @@ class MoviesSpider(scrapy.Spider):
             #query id of category
             cate = subject['genres'][0]
             c = Category.query.filter_by(category=cate).first()
-            if()
             db.session.add(m)
 
-
-def insert_category(name):
 
