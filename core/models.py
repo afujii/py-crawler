@@ -1,4 +1,15 @@
 # -*- coding: utf-8 -*-
+"""
+    Integer         an integer
+    String (size)   a string with a maximum length
+    Text            some longer unicode text
+    DateTime        date and time expressed as Python datetime object.
+    Float           stores floating point values
+    Boolean         stores a boolean value
+    PickleType      stores a pickled Python object
+    LargeBinary     stores large arbitrary binary data
+"""
+
 
 from core import app
 from flask_sqlalchemy import SQLAlchemy
