@@ -4,6 +4,8 @@ import scrapy
 import json
 from core import db
 from core.models import Movie
+from crawler.spiders.subjects_spider import save_subject_detail
+
 
 
 class MoviesSpider(scrapy.Spider):
@@ -18,9 +20,4 @@ class MoviesSpider(scrapy.Spider):
     def parse(self, response):
         res = json.loads(response.body)
         for subject in res['subjects']:
-            #query id of category
-            cate = subject['genres'][0]
-            c = Category.query.filter_by(category=cate).first()
-            db.session.add(m)
-
-
+            save_subject_detail(subject['id'])

@@ -17,7 +17,6 @@ class Movie(db.Model):
     title = db.Column(db.String(256))  # 电影名
     info = db.Column(db.String(1024))  # 描述
     director = db.Column(db.String(256))  # 导演
-    actor = db.Column(db.String(256))  # 演员
     rating = db.Column(db.Float)  # 评分
     cover = db.Column(db.String(256))  # 图片链接
     crawl_time = db.Column(db.Date)  # 爬取时间
