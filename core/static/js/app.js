@@ -1,12 +1,57 @@
+//
+// init
+// ----------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', init)
 
-
 function init() {
-    $('#btn-login').on('click', onLogin);
-    $('#btn-register').on('click', onRegister);
+    switch (window.location.pathname) {
+        case '/in-theaters':
+            initInTheaters()
+            break
+        case '/coming-soon':
+            initComingSoon()
+            break
+        case '/rank':
+            initRank()
+            break
+        default:
+            initLogin()
+    }
     console.log('app inited')
 }
 
+//
+// in theaters page
+// ----------------------------------------------------------------------------
+function initInTheaters() {
+
+}
+
+
+
+//
+// coming soon page
+// ----------------------------------------------------------------------------
+function initComingSoon() {
+
+}
+
+
+
+//
+// rank page
+// ----------------------------------------------------------------------------
+function initRank() {
+
+}
+
+//
+// login page
+// ----------------------------------------------------------------------------
+function initLogin() {
+    $('#btn-login').on('click', onLogin)
+    $('#btn-register').on('click', onRegister)
+}
 
 function onLogin() {
     console.log('start login')
@@ -44,7 +89,6 @@ function onLogin() {
         return false
     })
 }
-
 
 function onRegister() {
     console.log('start register')
@@ -86,7 +130,9 @@ function onRegister() {
     })
 }
 
-
+//
+// utils
+// ----------------------------------------------------------------------------
 function modal() {
     $('#model').modal()
 }
