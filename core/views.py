@@ -17,43 +17,26 @@ class InTheatersView(views.MethodView):
             # movies = []
             # for l in list:
             #     movies.append(list[1])
-            movies = Movie.query.filter_by(category='movie_showing').order_by(Movie.rating.desc()).all()
+            movies = Movie.query.filter_by(category='movie_showing').order_by(Movie.rating_count.desc()).all()
             print(movies)
             return render_template('in-theaters.html', movies=movies)
         except TemplateNotFound:
             abort(404)
 
-    def post(self):
-        return 'POST'
-
 
 class ComingSoonView(views.MethodView):
     def get(self):
         try:
-            movies = Movie.query.filter_by(category='movie_latest').order_by(Movie.rating.desc()).all()
-            movies = []
-            for l in list:
-                movies.append(list[1])
-            # movies = Movie.query.order_by(Movie.rating.desc()).all()
+            movies = Movie.query.filter_by(category='movie_latest').order_by(Movie.show_at).all()
             return render_template('coming-soon.html', movies=movies)
         except TemplateNotFound:
             abort(404)
-
-    def post(self):
-        return 'POST'
 
 
 class RankView(views.MethodView):
     def get(self):
         try:
-            list = db.session.query(Ranking, Movie).join(Movie, Movie.id==Ranking.movie_id).all()
-            movies = []
-            for l in list:
-                movies.append(list[1])
-            # movies = Movie.query.order_by(Movie.rating.desc()).all()
+            movies = Movie.query.filter_by(category='movie_latest').order_by(Movie.rating.desc()).all()
             return render_template('rank.html', movies=movies)
         except TemplateNotFound:
             abort(404)
-
-    def post(self):
-        return 'POST'

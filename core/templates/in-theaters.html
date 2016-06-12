@@ -23,78 +23,27 @@
 
 
 {% block content %}
-<main class="in-theaters" style="padding: 70px 0px;">
+<main class="in-theaters">
 
-{% for movie in movies %}
-<!-- <div class="row">
-    <div class="col-md-10">
-        <div class="row">
-            <div class="col-md-6">
-                <h1 class="title">{{ movie.title }}</h1>
+    {% for movie in movies %}
+    <div class="row">
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="title">{{ movie.title }}</h1>
+                </div>
+                <div class="col-md-6 text-right">
+                    <span class="rating">{{ movie.rating }} 分</span>
+                </div>
             </div>
-            <div class="col-md-6 text-right">
-                <span class="rating">{{ movie.rating }} 分</span>
-            </div>
+            <p class="summary">{{ movie.summary }}</p>
         </div>
-        <p class="summary">{{ movie.info }}</p>
+
+        <div class="col-md-2">
+            <img src="{{ movie.cover }}" alt="{{ movie.title }}">
+        </div>
     </div>
-
-    <div class="col-md-2">
-        <img src="{{ movie.cover }}" alt="{{ movie.title }}">
-    </div>
-</div> -->
-<div style="margin-left:35%;padding: 10px 10px;border-bottom: dotted #ccc 2px;">
-<div class="pull-left" style="width:50%;padding: 30px 40px">
-<div class="rating">
-    {{movie.rating}}fen
-</div>
-<div class="title">{{ movie.title }}
-
-</div>
-
-<div class="summary">
-{{movie.summary}}
-</div>
-
-</div>
-<div class="pull-left">
-<img class="cover" src="{{ movie.cover }}" alt="{{ movie.title }}">
-</div>
-<div class="clearfix"></div>
-</div>
-{% endfor %}
+    {% endfor %}
 
 </main>
 {% endblock %}
-<style type="text/css">
-.title {
-    padding:5px 0px;
-    font-size: 18px;
-    font-weight: bold;
-}
-.rating {
-    position: relative;
-    right: 10px;
-    text-align: right;
-    color:#FFFF00;
-}
-.summary {
-    font-size: 12px;
-    font-weight: normal;
-    line-height: 20px;
-    color: #666;
-}
-.cover {
-    margin-top: 40px;
-    width: 100px;
-}
-</style>
-<script type="text/javascript">
-function summary(s) {
-    if(50>s.length) {
-        return s.substring(0, 50);
-    }else {
-        return s;
-    }
-}
-</script>

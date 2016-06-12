@@ -100,10 +100,11 @@
 
 /************************ content ************************/
 .app-container {
+    width: 100%;
     height: 100%;
 }
 
-.content {
+main {
     position: absolute;
     top: 60px;
     right: 30px;
