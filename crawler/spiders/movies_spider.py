@@ -18,7 +18,12 @@ class MoviesSpider(scrapy.Spider):
     def parse(self, response):
         res = json.loads(response.body)
         for subject in res['subjects']:
-            m = Movie()
+            #query id of category
+            cate = subject['genres'][0]
+            c = Category.query.filter_by(category=cate).first()
+            if()
             db.session.add(m)
 
+
+def insert_category(name):
 
