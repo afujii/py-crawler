@@ -8,8 +8,7 @@ from bs4 import BeautifulSoup
 
 
 # SUBJECT_API = 'https://api.douban.com/v2/movie/subject/'
-SUBJECT_API =
-'https://movie.douban.com/subject/%s/'
+SUBJECT_API = 'https://movie.douban.com/subject/%s/'
 
 def save_subject_detail(id, type):
     response = requests.get(SUBJECT_API % id).text
