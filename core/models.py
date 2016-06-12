@@ -26,17 +26,11 @@ class User(db.Model):
   username = db.Column(db.String(40))
   password = db.Column(db.String(40))
   is_expired = db.Column(db.Integer)
-  is_admin = db.Column(db.Integer)
   register_time = db.Column(db.BigInteger)
-  # about userinfo
   nick = db.Column(db.String(30))
   age = db.Column(db.Integer)
   sex = db.Column(db.Integer)
-  avatar = db.Column(db.String(200))
-  department = db.Column(db.Integer)
   description = db.Column(db.Text)
-  #about status
-  follower = db.Column(db.Text)
 
 
 # 分类
