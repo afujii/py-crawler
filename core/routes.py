@@ -3,12 +3,9 @@
 from flask import Blueprint
 import json
 import core.views as Views
-<<<<<<< HEAD
 from core.base import res
-=======
 import core.apis as Apis
 
->>>>>>> 9f164a0fcefc043b3af64214bfa1919bec12278b
 # Blueprint component
 site = Blueprint(
     name='site',
