@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
+'''
     Integer         an integer
     String (size)   a string with a maximum length
     Text            some longer unicode text
@@ -8,7 +8,7 @@
     Boolean         stores a boolean value
     PickleType      stores a pickled Python object
     LargeBinary     stores large arbitrary binary data
-"""
+'''
 
 
 from core import app
@@ -45,14 +45,14 @@ class Movie(db.Model):
     actor = db.Column(db.String(256))  # 演员
     rating = db.Column(db.Float)  # 评分
     cover = db.Column(db.String(256))  # 图片链接
-    crawl_time = db.Column(db.Date)  # 爬取时间
+    crawl_time = db.Column(db.DateTime)  # 爬取时间
 
 
 # 即将上映
 class ComingSoon(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     movie_id = db.Column(db.Integer)
-    will_show_at = db.Column(db.Date)
+    will_show_at = db.Column(db.DateTime)
 
 
 # 正在上映
@@ -60,7 +60,7 @@ class InTheaters(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     movie_id = db.Column(db.Integer)  # 分类 id
-    show_at = db.Column(db.Date)  # 上映时间
+    show_at = db.Column(db.DateTime)  # 上映时间
 
 
 # 分类排名

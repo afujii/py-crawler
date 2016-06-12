@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import scrapy, datetime
-import json
-from core.models import db, Movie
+import scrapy, datetime, json, requests
+from core.models import db, Movie, Category
 from crawler.items import SubjectItem
 
 SUBJECT_API = 'https://api.douban.com/v2/movie/subject/'
@@ -43,6 +42,6 @@ def save_subject_detail(id):
     m.director = ','.join(map(lambda x: x['name'], res['directors']))
     m.rating = res['rating']['average']
     m.cover = res['images']['large']
-    m.crawl_time = datetime.datetime()
+    m.crawl_time = datetime.datetime
     db.session.add(m)
     db.session.commit(m)
