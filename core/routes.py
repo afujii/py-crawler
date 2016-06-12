@@ -25,5 +25,5 @@ site.add_url_rule('/coming-soon', view_func=Views.ComingSoonView.as_view('coming
 site.add_url_rule('/rank',        view_func=Views.RankView.as_view('rank'))
 
 # associate with apis
-site.add_url_rule('/api/login',    view_func=Apis.LoginApi.as_view('login'))
-site.add_url_rule('/api/register', view_func=Apis.RegisterApi.as_view('register'))
+site.add_url_rule('/api/login',    view_func=Apis.LoginApi.as_view('login_api'))
+site.add_url_rule('/api/register', view_func=Apis.RegisterApi.as_view('register_api'))
