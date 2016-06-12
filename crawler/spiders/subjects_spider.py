@@ -5,7 +5,8 @@ from core.models import db, Movie, Category
 from crawler.items import SubjectItem
 from bs4 import BeautifulSoup
 
-SUBJECT_API = 'https://api.douban.com/v2/movie/subject/'
+# SUBJECT_API = 'https://api.douban.com/v2/movie/subject/'
+SUBJECT_API = 'https://m.douban.com/movie/subject/'
 
 class SubjectsSpider(scrapy.Spider):
     name = 'subjects'
