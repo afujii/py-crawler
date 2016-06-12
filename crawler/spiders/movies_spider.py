@@ -12,6 +12,7 @@ class MoviesSpider(scrapy.Spider):
     start_urls = [
         'https://api.douban.com/v2/movie/coming_soon',
         'https://api.douban.com/v2/movie/in_theaters',
+        'https://api.douban.com/v2/movie/top250',
     ]
 
     def __init__(self):
