@@ -4,10 +4,7 @@ import scrapy
 import json
 from core.models import db, Movie
 
-'''
-detail:
-https://api.douban.com/v2/movie/subject/
-'''
+
 class MoviesSpider(scrapy.Spider):
     name = 'MoviesSpider'
     allowed_domains = ['douban.com']
@@ -22,5 +19,5 @@ class MoviesSpider(scrapy.Spider):
         for subject in res['subjects']:
             m = Movie()
             db.session.add(m)
-            r = requests.get('https://api.douban.com/v2/movie/subject/'+subject['id'])
+
 
